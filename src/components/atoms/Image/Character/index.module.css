@@ -1,0 +1,19 @@
+.image {
+  background-image: url('/img/profile.jpg');
+  background-position-y: 80%;
+  background-position-x: 55%;
+  background-size: 200%;
+  border-radius: 300px;
+  width: 400px;
+  height: 400px;
+  margin: 50px;
+  box-shadow: 0px 0px 0px 0px rgba(30, 136, 229, 1);
+  transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  filter: grayscale(100%);
+}
+
+.image:hover {
+  box-shadow: 20px 20px 0px 0px rgba(30, 136, 229, 1);
+  transform: translate(-2%, -2%);
+  filter: grayscale(0%);
+}

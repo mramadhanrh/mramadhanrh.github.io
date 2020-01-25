@@ -1,0 +1,16 @@
+.container {
+  margin: 100px 0px;
+  text-align: center;
+}
+
+.container__greeting {
+  display: inline-block;
+  margin: 0 100px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.container__character {
+  vertical-align: middle;
+  display: inline-block;
+}

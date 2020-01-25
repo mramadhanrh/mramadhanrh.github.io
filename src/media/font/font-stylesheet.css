@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'Fredoka One';
+    src: url('FredokaOne-Regular.eot');
+    src: url('FredokaOne-Regular.eot?#iefix') format('embedded-opentype'),
+        url('FredokaOne-Regular.woff2') format('woff2'),
+        url('FredokaOne-Regular.woff') format('woff'),
+        url('FredokaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Linotte';
+    src: url('Linotte-Heavy.eot');
+    src: url('Linotte-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('Linotte-Heavy.woff2') format('woff2'),
+        url('Linotte-Heavy.woff') format('woff'),
+        url('Linotte-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Linotte';
+    src: url('Linotte-Light.eot');
+    src: url('Linotte-Light.eot?#iefix') format('embedded-opentype'),
+        url('Linotte-Light.woff2') format('woff2'),
+        url('Linotte-Light.woff') format('woff'),
+        url('Linotte-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Linotte';
+    src: url('Linotte-SemiBold.eot');
+    src: url('Linotte-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('Linotte-SemiBold.woff2') format('woff2'),
+        url('Linotte-SemiBold.woff') format('woff'),
+        url('Linotte-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Linotte';
+    src: url('Linotte-Bold.eot');
+    src: url('Linotte-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Linotte-Bold.woff2') format('woff2'),
+        url('Linotte-Bold.woff') format('woff'),
+        url('Linotte-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Linotte';
+    src: url('Linotte-Regular.eot');
+    src: url('Linotte-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Linotte-Regular.woff2') format('woff2'),
+        url('Linotte-Regular.woff') format('woff'),
+        url('Linotte-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
