@@ -3,5 +3,13 @@
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": ["error"]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["script/**"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ]
 }

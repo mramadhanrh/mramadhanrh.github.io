@@ -1,5 +1,5 @@
 {
-  "name": "ramadhan-portfolio-site",
+  "name": "mramadhan.github.io",
   "private": true,
   "description": "My portfolio site built using gatsby.",
   "version": "0.1.0",
@@ -36,6 +36,7 @@
     "eslint-plugin-react": "7.14.3",
     "eslint-plugin-react-hooks": "1.7.0",
     "gatsby-plugin-eslint": "^2.0.5",
+    "gh-pages": "^2.2.0",
     "prettier": "^1.18.2"
   },
   "keywords": [
@@ -48,13 +49,14 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy:github": "npm run build && node script/deploy"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/mramadhanr/mramadhanr.github.io.git"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/mramadhanr/mramadhanr.github.io.git/issues"
   }
 }

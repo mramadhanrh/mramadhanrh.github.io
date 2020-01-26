@@ -1,0 +1,65 @@
+version: 2.1
+
+aliases:
+  - &container_config
+  executor: node-executor
+
+executors:
+  node-executor:
+      docker:
+          - image: circleci/node:lts-buster-browsers-legacy
+
+jobs:
+  Depedencies:
+      <<: *container_config
+      steps:
+          - checkout
+          - attach_workspace:
+              at: .
+          - restore_cache:
+              key: depedency-cache-v1{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+          - rune:
+              name: Installing Dependencies
+              command: npm install
+          - save_cache:
+              key: depedency-cache-v1{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+              path:
+                  - ./node_modules
+          - run:
+              name: log-directory
+              command: ls -d */
+
+  Security:
+      <<: *container_config
+      steps:
+          - checkout
+          - attach_workspace:
+              at: .
+          - restore_cache:
+              key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+          - run: Test Audit Dependencies
+            command: npm audit
+
+  Quality:
+    <<: *container_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - restore_cache:
+          key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+      - run:
+          name: Test Code Quality
+          command: npm run lint
+
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - Depedencies
+      - Security:
+          requires:
+            - Dependencies
+      - Quality:
+          requires:
+            - Dependencies

@@ -4,6 +4,6 @@ export default {
     role: 'Frontend Developer',
     dndRole: 'Code Summoner',
     summary:
-      'My name is Muhammad Ramadhan Rahmat, i am a creative and passionate developer based in Bandung, specialize frontend for web, mobile, and game.'
+      'My name is Muhammad Ramadhan Rahmat, i am a creative and passionate developer based in Bandung, specialize frontend for web, mobile, and game development.'
   }
 };
