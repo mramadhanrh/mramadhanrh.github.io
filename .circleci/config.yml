@@ -38,7 +38,7 @@ jobs:
       - restore_cache:
           key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
       - run:
-          name: Test Audit Dependencies
+          name: Test Dependency Security
           command: npm audit
 
   Quality:
@@ -53,6 +53,18 @@ jobs:
           name: Test Code Quality
           command: npm run lint
 
+  Build:
+    <<: *container_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - restore_cache:
+          key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+      - run:
+          name: Test Build
+          command: npm run build
+
 workflows:
   version: 2
   pipeline:
@@ -63,4 +75,7 @@ workflows:
             - Dependencies
       - Quality:
           requires:
+            - Dependencies
+      - Build
+            requires:
             - Dependencies
