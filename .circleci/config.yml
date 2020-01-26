@@ -17,12 +17,12 @@ jobs:
       - attach_workspace:
           at: .
       - restore_cache:
-          key: dependency-cache-v1{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+          key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
       - run:
           name: Installing Dependencies
           command: npm install
       - save_cache:
-          key: dependency-cache-v1{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+          key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run:
