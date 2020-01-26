@@ -49,6 +49,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "lint": "eslint --ext .jsx --ext .js src/ pages/",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "deploy:github": "npm run build && node script/deploy"
   },
