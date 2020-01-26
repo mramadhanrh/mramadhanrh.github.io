@@ -76,6 +76,6 @@ workflows:
       - Quality:
           requires:
             - Dependencies
-      - Build
-            requires:
+      - Build:
+          requires:
             - Dependencies
