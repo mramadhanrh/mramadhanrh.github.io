@@ -23,7 +23,7 @@ jobs:
           command: npm install
       - save_cache:
           key: dependency-cache-v1{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
-          path:
+          paths:
             - ./node_modules
       - run:
           name: log-directory
