@@ -37,7 +37,8 @@ jobs:
           at: .
       - restore_cache:
           key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
-      - run: Test Audit Dependencies
+      - run:
+          name: Test Audit Dependencies
           command: npm audit
 
   Quality:
