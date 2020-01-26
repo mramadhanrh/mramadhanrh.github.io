@@ -2,43 +2,44 @@ version: 2.1
 
 aliases:
   - &container_config
-  executor: node-executor
+    executor: node-executor
 
 executors:
   node-executor:
-      docker:
-          - image: circleci/node:lts-buster-browsers-legacy
+    docker:
+      - image: circleci/node:lts-buster-browsers-legacy
 
 jobs:
-  Depedencies:
-      <<: *container_config
-      steps:
-          - checkout
-          - attach_workspace:
-              at: .
-          - restore_cache:
-              key: depedency-cache-v1{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
-          - rune:
-              name: Installing Dependencies
-              command: npm install
-          - save_cache:
-              key: depedency-cache-v1{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
-              path:
-                  - ./node_modules
-          - run:
-              name: log-directory
-              command: ls -d */
+  Dependencies:
+    <<: *container_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - restore_cache:
+          key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+      - run:
+          name: Installing Dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: log-directory
+          command: ls -d */
 
   Security:
-      <<: *container_config
-      steps:
-          - checkout
-          - attach_workspace:
-              at: .
-          - restore_cache:
-              key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
-          - run: Test Audit Dependencies
-            command: npm audit
+    <<: *container_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - restore_cache:
+          key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+      - run:
+          name: Audit Dependencies
+          command: npm audit
 
   Quality:
     <<: *container_config
@@ -49,14 +50,14 @@ jobs:
       - restore_cache:
           key: dependency-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
       - run:
-          name: Test Code Quality
+          name: Lint Code
           command: npm run lint
 
 workflows:
   version: 2
-  pipeline:
+  build_test_deploy:
     jobs:
-      - Depedencies
+      - Dependencies
       - Security:
           requires:
             - Dependencies
