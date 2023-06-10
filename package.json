@@ -10,7 +10,7 @@
     "@material-ui/styles": "^4.9.0",
     "antd": "^3.25.0",
     "babel-plugin-styled-components": "^1.10.6",
-    "gatsby": "^2.19.5",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^2.2.30",
     "gatsby-plugin-manifest": "^2.2.25",
     "gatsby-plugin-material-ui": "^2.1.6",
